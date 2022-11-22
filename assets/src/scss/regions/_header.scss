@@ -1,0 +1,14 @@
+@use '../base/' as *;
+
+.region.header {
+
+  .inner {
+    @include container;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.branding img {
+  max-width: 100px;
+}

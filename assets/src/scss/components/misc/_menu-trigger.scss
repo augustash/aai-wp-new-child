@@ -1,0 +1,21 @@
+@use '../../base/' as *;
+
+.menu-trigger {
+  all: unset;
+  margin-left: auto;
+  cursor: pointer;
+  z-index: 101;
+
+  span {
+    @include burger(40px, 3px, 8px, var(--black));
+    font-size: 0;
+    border: 0;
+  }
+
+  &.open {
+
+    span {
+      @include burger-to-cross;
+    }
+  }
+}

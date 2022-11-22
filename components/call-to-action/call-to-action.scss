@@ -1,0 +1,21 @@
+@use '../../assets/src/scss/base/' as *;
+
+.block.call-to-action {
+	@include block-padding;
+  background-color: var(--gray-lt);
+
+  > .inner {
+    @include container;
+  }
+
+  .button {
+
+    &.primary {
+      @include primary-button;
+    }
+
+    &.secondary {
+      @include secondary-button;
+    }
+  }
+}

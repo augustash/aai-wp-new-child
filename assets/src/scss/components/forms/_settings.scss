@@ -1,0 +1,29 @@
+.gform_wrapper {
+  --error-dk: #c02b0a;
+  --error-lt: #f9eeec;
+}
+
+// Form basics
+$gf-padding: 0; // set outer padding on form
+$gf-bg: transparent; // background color of form
+$gf-border-width: 0; // border-width on form
+$gf-border-color: transparent; // border color
+$gf-regular-font: inherit;
+$gf-bold-font: inherit;
+
+// // Fields / Rows
+// $gf-field-margin-bottom: 0.25rem; // NOT WORKING - margin between field and label below (vertical spacing between rows)
+
+// Labels
+$gf-label-font-size: 24px; // NOT WORKING
+$gf-label-font-color: inherit;
+
+// Inputs
+$gf-input-background-color: var(--gray-lt);
+$gf-input-border-color: var(--black);
+$gf-input-border-width: 2px;
+$gf-input-border-radius: 3px;
+$gf-input-padding: calc(var(--padding) * 0.5);
+// $gf-top-label-margin: 10px; // NOT WORKING margin between label and input field
+$gf-input-border-color-focus: var(--primary);
+// $gf-input-text-color-focus: solid $black 1px; // NOT WORKING

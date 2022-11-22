@@ -1,0 +1,13 @@
+@use '../../assets/src/scss/base/' as *;
+
+.block.webform {
+  @include block-margin;
+
+  > .inner {
+    @include container;
+  }
+
+  .gform_button.button {
+    @include primary-button;
+  }
+}

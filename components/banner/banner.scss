@@ -1,0 +1,22 @@
+@use '../../assets/src/scss/base/' as *;
+
+
+.block.hero {
+	@include block-padding;
+	background-color: var(--lt-gray);
+
+	> .inner {
+		@include container;
+	}
+
+	.button {
+
+		&.primary {
+			@include primary-button;
+		}
+
+		&.secondary {
+			@include secondary-button;
+		}
+	}
+}

@@ -1,0 +1,223 @@
+@use '../../../../../ash/assets/src/scss/util/breakpoint' as *;
+@use './settings' as *;
+@use './placeholders' as *;
+
+@mixin container {
+  max-width: rem-calc(1200);
+  margin: 0 auto;
+  padding: 0 ($global-padding);
+
+  @include breakpoint(medium) {
+    padding: 0 ($global-padding * 2);
+  }
+}
+
+@mixin block-margin {
+  margin: ($global-margin * 3) 0;
+
+  @include breakpoint(medium) {
+    margin: ($global-margin * 6) 0;
+  }
+}
+
+@mixin block-padding {
+  padding: ($global-margin * 3) 0;
+
+  @include breakpoint(medium) {
+    padding: ($global-margin * 6) 0;
+  }
+}
+
+@mixin primary-button {
+  @extend %button;
+  background-color: var(--primary);
+  border: solid 2px var(--primary);
+  color: var(--white);
+
+  &:visited,
+  &:active,
+  &:focus {
+    color: var(--white);
+  }
+
+  &:hover {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: var(--white);
+  }
+  @content;
+}
+
+@mixin secondary-button {
+  @extend %button;
+  border: 2px solid var(--gray-dk);
+  background-color: transparent;
+  color: var(--black);
+
+  &:visited,
+  &:active,
+  &:focus {
+    color: var(--black);
+  }
+
+  &:hover {
+    border-color: var(--gray-dk);
+    background-color: var(--gray-dk);
+    color: var(--white);
+  }
+  @content;
+}
+
+@mixin burger($width: rem-calc(30), $height: rem-calc(5), $gutter: rem-calc(3), $color: var(--black), $border-radius: 0, $transition-duration: 0.3s) {
+  $burger-height: $height !global;
+  $burger-gutter: $gutter !global;
+  position: relative;
+  margin-top: $height + $gutter;
+  margin-bottom: $height + $gutter;
+  user-select: none;
+
+  &, 
+  &:before,
+  &:after {
+    display: block;
+    width: $width;
+    height: $height;
+    background-color: $color;
+    outline: 1px solid transparent;
+    transition-property: background-color, transform;
+    transition-duration: $transition-duration;
+    @if $border-radius != 0 {
+        border-radius: $border-radius;
+    }
+  }
+
+  &:before,
+  &:after {
+    position: absolute;
+    content: '';
+  }
+
+  &:before {
+    top: -($height + $gutter);
+  }
+
+  &:after {
+    top: $height + $gutter;
+  }
+}
+
+@mixin burger-parts {
+  &,
+  &:before,
+  &:after {
+    @content;
+  }
+}
+
+@mixin burger-top {
+  &:before {
+    @content;
+  }
+}
+
+@mixin burger-middle {
+  & {
+    @content;
+  }
+}
+
+@mixin burger-bottom {
+  &:after {
+    @content;
+  }
+}
+
+@mixin burger-to-cross($color: auto) {
+
+  & {
+    background-color: transparent;
+  }
+
+  @if ($color != auto) {
+    &:before,
+    &:after {
+        background-color: $color;
+    }
+  }
+
+  &:before {
+    transform: translateY($burger-gutter + $burger-height) rotate(45deg);
+  }
+
+  &:after {
+    transform: translateY(-($burger-gutter + $burger-height)) rotate(-45deg);
+  }
+}
+
+@mixin play-button($color: auto) {
+  
+  .play-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: rem-calc(80);
+    height: rem-calc(80);
+    border-radius: 50%;
+    background-color: var(--primary);
+    z-index: 5;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+  
+    span {
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0.75rem 0 0.75rem 1.25rem;
+      border-color: transparent transparent transparent var(--white);
+    }
+  }
+}
+
+@mixin overlay {
+  
+  &:after {
+    position: absolute;
+    content: '';
+    inset: 0;
+    background-color: rgba(var(--black), 0.2);
+  }
+}
+
+
+
+// @mixin fluid-type($min-font-size, $max-font-size, $min-vw: null, $max-vw: null, $property: font-size) {
+
+//   @if ($min-vw == null) {
+//     $min-vw: rem-calc(map-get($breakpoints, 'medium'));
+//   }
+//   @if ($max-vw == null) {
+//     $max-vw: rem-calc(map-get($breakpoints, 'xlarge'));
+//   }
+//   $min-vw-unit: unit($min-vw);
+//   $max-vw-unit: unit($max-vw);
+//   $min-font-size-unit: unit($min-font-size);
+//   $max-font-size-unit: unit($max-font-size);
+
+//   @if $min-vw-unit == $max-vw-unit and $min-vw-unit == $min-font-size-unit and $min-vw-unit == $max-font-size-unit {
+
+//     & {
+//       #{$property}: $min-font-size;
+
+//       @media screen and (min-width: $min-vw) {
+//         #{$property}: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+//       }
+
+//       @media screen and (min-width: $max-vw) {
+//         #{$property}: $max-font-size;
+//       }
+//     }
+//   }
+// }

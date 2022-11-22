@@ -1,0 +1,9 @@
+@use '../../assets/src/scss/base/' as *;
+
+.text.block {
+  @include block-margin;
+
+  > .inner {
+    @include container;
+  }
+}
