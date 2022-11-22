@@ -1,7 +1,5 @@
 <?php
 
-/* Block Name: Contact Form */
-
 $title = get_sub_field('form_title');
 $form = get_sub_field('form');
 $text = get_sub_field('text');
