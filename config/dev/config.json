@@ -1,0 +1,41 @@
+{
+  "browserSync": {
+    "proxy": "http://localhost",
+    "port": 3000,
+    "openAutomatically": false,
+    "notify": false
+  },
+  "css": {
+    "dest": "assets/css",
+    "src": [
+      "scss/**/*.scss"
+    ],
+    "includePaths": [
+      "../../ash/scss"
+    ]
+  },
+  "js": {
+    "dest": "assets/js",
+    "src": [
+      "js/**/*.js"
+    ]
+  },
+  "components": {
+    "css": {
+      "dest": "./components",
+      "src": [
+        "components/*/*.scss",
+        "scss/base/*.scss"
+      ],
+      "includePaths": [
+        "./scss/base"
+      ]
+    },
+    "js": {
+      "dest": "./components",
+      "src": [
+        "components/*/*.js"
+      ]
+    }
+  }
+}

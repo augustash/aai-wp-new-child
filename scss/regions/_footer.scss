@@ -1,0 +1,8 @@
+
+.region.footer {
+  background-color: color(theme-gray-lt);
+
+  @include breakpoint(medium) {
+    padding: 0 ($global-padding * 2);
+  }
+}

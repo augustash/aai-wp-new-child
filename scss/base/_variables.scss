@@ -1,0 +1,26 @@
+
+// global
+$global-width: 1200px;
+$global-padding: 1rem;
+$global-margin: 1rem;
+
+$breakpoints: (
+  small: 0,
+  medium: 640px,
+  large: 1024px,
+  xlarge: 1200px,
+  xxlarge: 1440px,
+);
+
+/* stylelint-disable color-no-hex */
+$theme-colors: (
+  theme-black: #000,
+  theme-white: #fff,
+  theme-success: #86c13d,
+  theme-warning: #f1ba2e,
+  theme-alert: #e54040,
+  theme-gray-lt: #f4f4f4,
+  theme-gray-dk: #666,
+  theme-primary: #4394bf,
+);
+$colors: $theme-colors;

@@ -1,0 +1,38 @@
+// @use '../../ash/scss/main.scss' as *; // styles from base theme
+// @use './base/' as *; // variables, normalize
+// @use './regions/' as *; // header, footer, global
+// @use './components/misc/' as *; // menu trigger
+// @use './components/navigation/' as *; // primary, mobile
+// @use './components/forms/' as *; // gravity forms
+// @use '../components/' as *; // page builder components
+
+// Make sure the charset is set appropriately
+@charset 'UTF-8';
+
+@import '../ash/scss/main.scss';
+// @import '../ash/scss/base/variables';
+// @import '../ash/scss/util/breakpoint';
+@import 'base/mixins';
+@import 'base/functions';
+@import 'base/variables';
+@import 'base/placeholders';
+
+////////////////////////////////////////////////////////////////////////////////
+// REGIONS
+// -----------------------------------------------------------------------------
+// The regions/ folder usually contains a number of files, each of them
+// setting some styles for the main sections of the regions (header, footer, and
+// so on).
+
+@import 'regions/*.scss';
+
+////////////////////////////////////////////////////////////////////////////////
+// COMPONENT
+// -----------------------------------------------------------------------------
+// For smaller components, there is the components/ folder. While region/ is
+// kind of macro (defining the global wireframe), components/ is more micro. It
+// can contain all kinds of specific modules like a slider, a loader, a widget,
+// or anything along those lines. There are usually a lot of files in
+// components/ since your site should be mostly composed of tiny modules.
+
+@import 'components/**/*.scss';

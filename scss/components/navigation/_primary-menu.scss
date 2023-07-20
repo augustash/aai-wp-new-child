@@ -1,0 +1,19 @@
+
+.primary.menu {
+
+  a {
+    color: color(theme-black);
+
+    &:visited {
+      color: color(theme-black);
+    }
+
+    &:focus {
+      color: color(theme-primary);
+    }
+
+    &:hover {
+      color: color(theme-primary);
+    }
+  }
+}

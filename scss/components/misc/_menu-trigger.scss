@@ -1,0 +1,20 @@
+
+.menu-trigger {
+  all: unset;
+  margin-left: auto;
+  cursor: pointer;
+  z-index: 101;
+
+  span {
+    @include burger(40px, 3px, 8px, color(theme-black));
+    font-size: 0;
+    border: 0;
+  }
+
+  &.open {
+
+    span {
+      @include burger-to-cross;
+    }
+  }
+}

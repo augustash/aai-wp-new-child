@@ -1,0 +1,24 @@
+@import 'mixins';
+@import 'functions';
+@import 'variables';
+@import 'placeholders';
+
+.block.hero {
+  @include block-padding;
+  background-color: color(theme-gray-lt);
+
+  > .inner {
+    @include container;
+  }
+
+  .button {
+
+    &.primary {
+      @include primary-button;
+    }
+
+    &.secondary {
+      @include secondary-button;
+    }
+  }
+}
