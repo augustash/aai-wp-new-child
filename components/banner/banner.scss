@@ -1,7 +1,8 @@
-@import 'mixins';
-@import 'functions';
-@import 'variables';
-@import 'placeholders';
+@import '../../../ash/scss/util/breakpoint';
+@import '../../scss/base/mixins';
+@import '../../scss/base/functions';
+@import '../../scss/base/variables';
+@import '../../scss/base/placeholders';
 
 .block.hero {
   @include block-padding;
