@@ -2,7 +2,8 @@
 
 /* The template for displaying the footer */
 $custom_logo_id = get_theme_mod( 'custom_logo' );
-$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+// No logo set yet (a new site): fall back to the site name.
+$image = $custom_logo_id ? wp_get_attachment_image_src( $custom_logo_id , 'full' ) : false;
 $text = get_field('text', 'option');
 
 ?>
@@ -13,7 +14,11 @@ $text = get_field('text', 'option');
     <div class="top group">
 			<div class="first group">
 				<a class="logo" href="<?php echo get_option("siteurl"); ?>">
-					<img src="<?php echo $image[0]; ?>" alt="">
+					<?php if ( $image ) : ?>
+						<img src="<?php echo $image[0]; ?>" alt="">
+					<?php else : ?>
+						<?php bloginfo( 'name' ); ?>
+					<?php endif; ?>
 				</a>
 				<?php if ($text): ?>
 					<?php echo $text; ?>
